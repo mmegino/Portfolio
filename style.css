@@ -786,6 +786,18 @@ span {
     .animate.home-img {
         width: 55%;
     }
+    .trainings-content .container#basic:hover a, 
+    .trainings-content .container#html:hover a, 
+    .trainings-content .container#programming:hover a, 
+    .trainings-content .container#javaScript:hover a, 
+    .trainings-content .container#python:hover a {
+        transform: scale(1.0);
+    }
+
+    .skills-img .image-container img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 
@@ -874,6 +886,10 @@ span {
     .home-socials a {
         width: 38px;
         height: 38px;
+    }
+    .skills-img .image-container img {
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -966,14 +982,6 @@ transition-delay: calc(.3s * var(--i));
 
     .home-socials p {
         z-index: 99;
-    }
-
-    .trainings-content .container#basic:hover, 
-    .trainings-content .container#html:hover, 
-    .trainings-content .container#programming:hover, 
-    .trainings-content .container#javaScript:hover, 
-    .trainings-content .container#python:hover {
-        transform: none;
     }
 }
 
