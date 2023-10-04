@@ -655,6 +655,7 @@ span {
 .contact form .input-box .input-field input::placeholder,
 .contact form .textarea-field textarea::placeholder {
     color: var(--text-color);
+    opacity: .4;
 }
 
 .contact form .focus {
