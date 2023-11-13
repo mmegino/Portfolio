@@ -15,7 +15,7 @@
     --bg-color: #1a2029;
     --second-bg-color: #202833;
     --main-color: #66fcf1;
-    --text-color: #c5c6c8;
+    --text-color: #ffffff;
 }
 
 html {
@@ -25,8 +25,54 @@ html {
 
 body {
     background: var(--bg-color);
-    color: var(--text-color)
+    color: var(--text-color);
+    overflow: hidden;
 }
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color); /* Splash screen background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color); /* Text color on the splash screen */
+    font-size: 24px;
+    animation: fadeOut 3s ease-in-out forwards; /* Animation for fading out */
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  .splash img {
+    height: 120px;
+    margin: 20px;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .main-content {
+    opacity: 0; /* Initially hide the main content */
+    animation: fadeIn 5s ease-in-out forwards 5s; /* Delayed fade-in animation */
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .header {
     position: fixed;
@@ -34,7 +80,7 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background: transparent;
+    background-color: transparent !important;
     display:  flex;
     justify-content: space-between;
     align-items: center;
@@ -102,6 +148,8 @@ section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
     padding: 0 9%;
+    scroll-snap-align: start;
+    height: auto;
 }
 
 
@@ -499,7 +547,6 @@ span {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 5rem;
     gap: 2rem;
     padding: 4rem;
     background: var(--second-bg-color);
@@ -552,28 +599,41 @@ span {
     justify-content: center;
     align-items: center;
 }
+.trainings-content .container#it:hover a{
+    background: url(images/trainings/Google\ IT\ Support.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 1s;
+    color: transparent;
+    transform: scale(1.2);
+}
+
+.trainings-content .container#mad:hover a{
+    background: url(images/trainings/Mobile\ Application\ Development.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 1s;
+    color: transparent;
+    transform: scale(1.2);
+}
 
 .trainings-content .container#basic:hover a{
     background: url(images/trainings/Basic\ Web\ Development\ Crash\ Course.png);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
     transition: 1s;
     color: transparent;
     transform: scale(1.2);
 }
 
-.trainings-content .container#html:hover a{
-    background: url(images/trainings/HTML\ &\ CSS.png);
-    background-size: cover;
-    background-position: center;
-    transition: 1s;
-    color: transparent;
-    transform: scale(1.2);
-}
 
 .trainings-content .container#programming:hover a{
     background: url(images/trainings/Programming\ Basics.png);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
     transition: 1s;
     color: transparent;
@@ -582,7 +642,8 @@ span {
 
 .trainings-content .container#javaScript:hover a{
     background: url(images/trainings/JavaScript\ Programming.PNG);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
     transition: 1s;
     color: transparent;
@@ -591,7 +652,8 @@ span {
 
 .trainings-content .container#python:hover a{
     background: url(images/trainings/E-Certificate\ -\ Python.JPG);
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center;
     transition: 1s;
     color: transparent;

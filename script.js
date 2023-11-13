@@ -8,7 +8,6 @@ menuIcon.onclick = () => {
 }
 
 // scroll section
-let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
 
@@ -59,5 +58,57 @@ connect.addEventListener("click", function() {
     window.open(connectLink, "_blank");
 });
 
+//Smooth scrolling
+let currentSection = 0;
+const sections = document.querySelectorAll('section');
+let lastScrollTime = Date.now();
+let scrolling = false;
+const scrollDelay = 500;
+
+window.addEventListener('wheel', function(e) {
+  const now = Date.now();
+  if (now - lastScrollTime < scrollDelay || scrolling) return;
+
+  lastScrollTime = now;
+  scrolling = true;
+
+  if (e.deltaY > 0 && currentSection < sections.length - 1) {
+    currentSection++;
+  } else if (e.deltaY < 0 && currentSection > 0) {
+    currentSection--;
+  }
+
+  window.scroll({
+    top: sections[currentSection].offsetTop,
+    behavior: 'smooth'
+  });
+
+  setTimeout(() => {
+    scrolling = false;
+  }, scrollDelay);
+});
+
+// Prevent the window from scrolling to an intermediate section
+document.querySelectorAll('nav a').forEach((link, index) => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    scrolling = true;
+    currentSection = index;
+    sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      scrolling = false;
+    }, scrollDelay);
+  });
+});
+
+// Reload go to Home Section
+
+  window.addEventListener('load', function () {
+    // If it's a reload, scroll to the home section
+    if (performance.navigation.type === 1) {
+      document.body.style.overflow = 'auto'; // Allow scrolling without splash screen
+      window.scrollTo(0, document.getElementById('home').offsetTop);
+    }
+  });
 
 
