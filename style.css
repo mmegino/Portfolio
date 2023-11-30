@@ -50,6 +50,24 @@ body {
     margin: 20px;
   }
 
+  .logo img{
+    height: 35px;
+    width: 40px;
+    position: relative;
+    top: 8px;
+  }
+  
+  /* Add your other styles for the header */
+.header {
+    transition: opacity 0.5s ease; /* Add a transition effect for a smooth fade */
+  }
+  
+  .header.hidden {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction with hidden header */
+  }
+  
+
   @keyframes fadeOut {
     0% {
       opacity: 1;

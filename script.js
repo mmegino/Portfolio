@@ -112,3 +112,28 @@ document.querySelectorAll('nav a').forEach((link, index) => {
   });
 
 
+
+  let header = document.querySelector('.header');
+  let timeoutId;
+  
+  // Function to hide the header
+  const hideHeader = () => {
+    header.classList.add('hidden');
+  };
+  
+  // Function to reset the timeout and show the header
+  const resetTimeout = () => {
+    header.classList.remove('hidden');
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(hideHeader, 5000);
+  };
+  
+  // Event listener for mousemove and scroll events
+  document.addEventListener('mousemove', resetTimeout);
+  document.addEventListener('scroll', resetTimeout);
+  
+  // Initial setup to hide header after 5 seconds on page load
+  timeoutId = setTimeout(hideHeader, 5000);
+  
+
+  
