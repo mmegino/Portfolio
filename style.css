@@ -861,6 +861,13 @@ span {
     }
 }
 
+@media (max-width: 920px) {
+    .skills-img .image-container img {
+        width: 110px;
+        height: 110px;
+    }
+}
+
 @media (max-width: 850px) {
     .animate.home-img {
         width: 55%;
@@ -874,8 +881,8 @@ span {
     }
 
     .skills-img .image-container img {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
     }
 }
 
@@ -945,6 +952,20 @@ span {
         opacity: .6;
     }
     
+    .skills-img .image-container img {
+        width: 70px;
+        height: 70px;
+
+    }
+    
+}
+
+@media (max-width: 681px) {
+    .skills-img .image-container img {
+        width: 120px;
+        height: 120px;
+
+    }
 }
 
 
@@ -995,53 +1016,6 @@ span {
     }
 }
 
-/* ANIMATION RELOAD AND SCROLL  */
-.animate {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    z-index: 98;
-}
-
-.animate.home-img {
-    width: 50%;
-}
-
-.logo .animate,
-.navbar .animate,
-#menu-icon .animate,
-.home.show-animate .animate {
-    animation: showRight 1s ease forwards;
-    animation-delay: calc(.3s * var(--i));
-}
-
-.animate.scroll {
-    transition: 1s ease;
-    transition-delay: calc(.3s / var(--i));
-    animation: none;
-}
-
-section:nth-child(odd) .animate.scroll,
-.footer .animate.scroll {
-    background: var(--second-bg-color);
-}
-
-.education .education-box .animate.scroll {
-    width: 105%;
-}
-
-.skills.show-animate .animate.scroll,
-.education.show-animate .animate.scroll,
-.trainings.show-animate .animate.scroll,
-.contact.show-animate .animate.scroll,
-.footer.show-animate .animate.scroll {
-transition-delay: calc(.3s * var(--i));
-    width: 0;
-
-}
 
 @media (max-width: 371px) {
     .home {
@@ -1105,3 +1079,56 @@ transition-delay: calc(.3s * var(--i));
 }
 
 
+/* ANIMATION RELOAD AND SCROLL  */
+.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 98;
+    animation: showRight 1s ease forwards;
+    animation-play-state: paused; /* Pause the animation initially */
+}
+
+.animate.triggered {
+    animation-play-state: running; /* Start the animation when this class is added */
+}
+
+.animate.home-img {
+    width: 50%;
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll {
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+section:nth-child(odd) .animate.scroll,
+.footer .animate.scroll {
+    background: var(--second-bg-color);
+}
+
+.education .education-box .animate.scroll {
+    width: 105%;
+}
+
+.skills.show-animate .animate.scroll,
+.education.show-animate .animate.scroll,
+.trainings.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll,
+.footer.show-animate .animate.scroll {
+transition-delay: calc(.3s * var(--i));
+    width: 0;
+
+}

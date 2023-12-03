@@ -30,10 +30,10 @@ window.onscroll = () => {
             // active sections for animation on scroll
             sec.classList.add('show-animate');
         }
-        // if want to use animation that repeats on scroll use this
-        else {
-            sec.classList.remove('show-animate');
-        }
+        // Use this if you want animation that repeats on scroll
+        // else {
+        //     sec.classList.remove('show-animate');
+        // }
     });
 
     // sticky header
@@ -65,28 +65,28 @@ let lastScrollTime = Date.now();
 let scrolling = false;
 const scrollDelay = 500;
 
-window.addEventListener('wheel', function(e) {
-  const now = Date.now();
-  if (now - lastScrollTime < scrollDelay || scrolling) return;
+// window.addEventListener('wheel', function(e) {
+//   const now = Date.now();
+//   if (now - lastScrollTime < scrollDelay || scrolling) return;
 
-  lastScrollTime = now;
-  scrolling = true;
+//   lastScrollTime = now;
+//   scrolling = true;
 
-  if (e.deltaY > 0 && currentSection < sections.length - 1) {
-    currentSection++;
-  } else if (e.deltaY < 0 && currentSection > 0) {
-    currentSection--;
-  }
+//   if (e.deltaY > 0 && currentSection < sections.length - 1) {
+//     currentSection++;
+//   } else if (e.deltaY < 0 && currentSection > 0) {
+//     currentSection--;
+//   }
 
-  window.scroll({
-    top: sections[currentSection].offsetTop,
-    behavior: 'smooth'
-  });
+//   window.scroll({
+//     top: sections[currentSection].offsetTop,
+//     behavior: 'smooth'
+//   });
 
-  setTimeout(() => {
-    scrolling = false;
-  }, scrollDelay);
-});
+//   setTimeout(() => {
+//     scrolling = false;
+//   }, scrollDelay);
+// });
 
 // Prevent the window from scrolling to an intermediate section
 document.querySelectorAll('nav a').forEach((link, index) => {
@@ -102,9 +102,8 @@ document.querySelectorAll('nav a').forEach((link, index) => {
 });
 
 // Reload go to Home Section
-
   window.addEventListener('load', function () {
-    // If it's a reload, scroll to the home section
+
     if (performance.navigation.type === 1) {
       document.body.style.overflow = 'auto'; // Allow scrolling without splash screen
       window.scrollTo(0, document.getElementById('home').offsetTop);
