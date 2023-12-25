@@ -65,29 +65,6 @@ let lastScrollTime = Date.now();
 let scrolling = false;
 const scrollDelay = 500;
 
-// window.addEventListener('wheel', function(e) {
-//   const now = Date.now();
-//   if (now - lastScrollTime < scrollDelay || scrolling) return;
-
-//   lastScrollTime = now;
-//   scrolling = true;
-
-//   if (e.deltaY > 0 && currentSection < sections.length - 1) {
-//     currentSection++;
-//   } else if (e.deltaY < 0 && currentSection > 0) {
-//     currentSection--;
-//   }
-
-//   window.scroll({
-//     top: sections[currentSection].offsetTop,
-//     behavior: 'smooth'
-//   });
-
-//   setTimeout(() => {
-//     scrolling = false;
-//   }, scrollDelay);
-// });
-
 // Prevent the window from scrolling to an intermediate section
 document.querySelectorAll('nav a').forEach((link, index) => {
   link.addEventListener('click', function(e) {
